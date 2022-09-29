@@ -33,14 +33,15 @@ def search_recipe(name=None):
         cursor.close()
         return name,desc, ing
     
-    def create_recipe(name, description, ingredients, steps):
-        i = 0
-        cursor = conn.cursor()
-        query = """ INSERT INTO `recipe` (`name`, `description`, `ingredients`) VALUES (%s, %s, %s)
+def create_recipe(name, description, ingredients, steps):
+    i = 0
+    cursor = conn.cursor()
+    query = """ INSERT INTO `recipe` (`name`, `description`, `ingredients`) VALUES (%s, %s, %s)
         """
-        cursor.execute(query, (name, description, ingredients))
-        query_steps = """INSERT INTO `instructions` (`step_number`, `name`, `instruction`) VALUES (%s, %s, %s)"""
-        for step in steps:
-           i+=1
-           cursor.execute(query, (i, name, step))
-        cursor.close()
+    cursor.execute(query, (name, description, ingredients))
+    query_steps = """INSERT INTO `instructions` (`step_number`, `name`, `instruction`) VALUES (%s, %s, %s)"""
+    for step in steps:
+        i+=1
+        cursor.execute(query, (i, name, step))
+    cursor.close()
+    
