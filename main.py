@@ -1,8 +1,11 @@
-import pymysql as sql
-import pymysql.cursors
-
 def main():
-	haha
+	print("""Welcome To Pythonees Recipe Book.
+		Current functionalities of the recipe book include:
+		1) View All Recipes (cmd: viewAll)
+		2) Seach For Recipe (cmd: search)
+		3) Exit (cmd: exit)
+		""")
 
-if __name__ == '__main__':
-	main()
+	cmd = input("Enter a command: ")
+
+main()
