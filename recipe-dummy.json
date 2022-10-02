@@ -1,0 +1,10 @@
+{
+    "recipe1": {
+            "ingredients":["flour","apple"],
+            "instructions":"mix flour with apple"
+            },
+    "recipe2": {
+            "ingredients":["carrot","cheese"],
+            "instructions":"mix carrot with cheese"
+            }
+}
