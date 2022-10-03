@@ -37,14 +37,15 @@ def main():
 			Welcome To Pythonees Recipe Book.
 
 			Current functionalities of the recipe book include:
-			1) View All Recipes (cmd: viewAll)
-			2) Seach For Recipe (cmd: search)
-			3) Exit (cmd: exit)
+			- View All Recipes (cmd: viewAll)
+			- Seach For Recipe (cmd: search)
+			- Create New Recipe (cmd: create)
+			- Exit (cmd: exit)
 			""")
 		cmd = input("Enter a command: ")
 
 		# CMD : VIEWALL
-		if (cmd == 'viewAll' or cmd == 'viewall' or cmd == 1):
+		if (cmd == 'viewAll' or cmd == 'viewall'):
 			os.system("cls||clear")
 			# TODO :
 			#	pull all recipes from JSON file and loop over recipe names
@@ -53,7 +54,7 @@ def main():
 			return
 
 		# CMD : SEARCH
-		elif (cmd == 'search' or cmd == 2):
+		elif (cmd == 'search'):
 			os.system("cls||clear")
 			query = input("Please enter your recipe name: ")
 			recipe = db.recipe_search(query)
@@ -70,12 +71,14 @@ def main():
 			input("Press Enter to return to menu...")
 
 		# CMD : CREATE
-		#elif (cmd == 'create' or cmd == 3):
+		elif (cmd == 'create'):
 			# TODO: 
 			#	call to db.recipe_creation() 
 			#	prompt user to input name, ingredients and instructions
 			#	ingredients separated by ","
 			#	instructions separated by ";"
+			print("Sorry, this command is not currently available.")
+			input("Press Enter to return to menu...")
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):	
