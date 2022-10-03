@@ -46,12 +46,33 @@ def main():
 			return
 
 		# CMD : SEARCH
-		else if (cmd == 'search' || cmd == 2):
-			# TODO:
-			#	prompt user for a recipe name 
-			#	maybe implement fuzzy search
+		elif (cmd == 'search' or cmd == 2):
+			query = input("Please enter your recipe name: ")
+			recipe = db.recipe_search(query)
 
-		cmd = input("Enter a command: ")
+			if (recipe == False): # RECIPE NOT FOUND
+				print("{} does not exist in this recipe book.\n".format(query))
+
+			else: # RECIPE FOUND, PRINT RECIPE
+				# TODO: 
+				#	print recipe whole (DONE)
+				#	prompt user to view step by step or exit
+
+				print(recipe)
+				print_whole(recipe)
+
+			input("Press Enter to return to menu...\n")
+			return
+
+		# CMD : CREATE
+		#elif (cmd == 'create' or cmd == 3):
+			# TODO: 
+			#	call to db.recipe_creation() 
+			#	prompt user to input name, ingredients and instructions
+			#	ingredients separated by ","
+			#	instructions separated by ";"
+
+		os.system("cls||clear")
 	exit();
 
 main()
