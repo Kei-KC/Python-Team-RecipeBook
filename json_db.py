@@ -1,5 +1,5 @@
 import json
-import pandas 
+import pandas as pd
 
 def recipe_creation(name, ingredients, instructions):
     df = pd.read_csv('recipe_book.csv')
@@ -12,5 +12,5 @@ def recipe_creation(name, ingredients, instructions):
 def recipe_search(search_term):
     df = pd.read_csv('recipe_book.csv')
     if search_term in df['name'].values:
-        return df.query('name' == search_term)
+        return df.query("name == @search_term")
     return False;
