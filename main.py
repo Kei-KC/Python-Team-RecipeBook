@@ -77,6 +77,10 @@ def main():
 			#	ingredients separated by ","
 			#	instructions separated by ";"
 
+		# CMD : EXIT
+		elif (cmd == 'exit'):	
+			continue
+
 		else: 
 			print("No valid command entered.")
 			input("Press Enter to try again...")
