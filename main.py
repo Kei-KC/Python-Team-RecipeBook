@@ -33,7 +33,9 @@ def step_by_step(recipe):
 def main():
 	cmd = ""
 	while(cmd != "exit"):
-		print("""Welcome To Pythonees Recipe Book.
+		print("""
+			Welcome To Pythonees Recipe Book.
+
 			Current functionalities of the recipe book include:
 			1) View All Recipes (cmd: viewAll)
 			2) Seach For Recipe (cmd: search)
@@ -43,6 +45,7 @@ def main():
 
 		# CMD : VIEWALL
 		if (cmd == 'viewAll' or cmd == 'viewall' or cmd == 1):
+			os.system("cls||clear")
 			# TODO :
 			#	pull all recipes from JSON file and loop over recipe names
 			#	print recipe names in terminal
@@ -51,22 +54,20 @@ def main():
 
 		# CMD : SEARCH
 		elif (cmd == 'search' or cmd == 2):
+			os.system("cls||clear")
 			query = input("Please enter your recipe name: ")
 			recipe = db.recipe_search(query)
 
-			if (recipe == False): # RECIPE NOT FOUND
-				print("{} does not exist in this recipe book.\n".format(query))
-
-			else: # RECIPE FOUND, PRINT RECIPE
+			if (isinstance(recipe, pd.DataFrame)): # RECIPE FOUND, PRINT RECIPE
 				# TODO: 
 				#	print recipe whole (DONE)
 				#	prompt user to view step by step or exit
-
-				print(recipe)
 				print_whole(recipe)
 
-			input("Press Enter to return to menu...\n")
-			return
+			else: # RECIPE NOT FOUND
+				print("{} does not exist in this recipe book.\n".format(query))
+
+			input("Press Enter to return to menu...")
 
 		# CMD : CREATE
 		#elif (cmd == 'create' or cmd == 3):
@@ -76,8 +77,12 @@ def main():
 			#	ingredients separated by ","
 			#	instructions separated by ";"
 
+		else: 
+			print("No valid command entered.")
+			input("Press Enter to try again...")
+
 		os.system("cls||clear")
+
 	exit();
 
 main()
-f.close()
