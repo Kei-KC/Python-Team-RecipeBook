@@ -56,6 +56,7 @@ def main():
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):	
+			print("Thank you for using Pythonees Recipe Book.")
 			continue
 
 		else: 
