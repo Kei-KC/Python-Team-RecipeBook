@@ -1,24 +1,28 @@
 import json
 import json_db as db
+import pandas as pd
 import os # for clearing the terminal
-
 
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
-	name = recipe["name"]
-	ingredients_arr = recipe["ingredients"].str.split(",")
-	instructions_arr = recipe["instructions"].str.split(";")
-	print("{} Recipe\n".format(name))
+	name = recipe["name"].values[0]
+	ingr_arr = recipe["ingredients"].values[0].split(",")
+	inst_arr = recipe["instructions"].values[0].split(";")
+
+	# print name
+	print("Recipe Name: {}\n".format(name))
 
 	# print ingredients
-	print("Ingredients:\n")
-	for ing in ingredients_arr: 
-		print("{}\n".format(ing))
+	print("Ingredients:")
+	for ingr in ingr_arr: 
+		print("{}".format(ingr))
+	print("\n")
 
 	# print instructions
-	print("Instructions:\n")
-	for ins in instructions_arr: 
-		print("{}\n".format(ins))
+	print("Instructions:")
+	for inst in inst_arr: 
+		print("{}".format(inst))
+	print("\n")
 
 	return
 
