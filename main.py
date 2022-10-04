@@ -26,7 +26,7 @@ def main():
 			#	print recipe names in terminal
 			#	prompt user to select a recipe
 			print_db.print_all_names()
-			return
+			input("Press Enter to return to menu...")
 
 		# CMD : SEARCH
 		elif (cmd == 'search'):
