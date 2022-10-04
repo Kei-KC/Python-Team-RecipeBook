@@ -25,6 +25,7 @@ def main():
 			#	pull all recipes from CSV file and loop over recipe names
 			#	print recipe names in terminal
 			#	prompt user to select a recipe
+
 			print_db.print_all_menu()
 			query = input("\nNow select a menu to view recipe! ")
 			recipe = db.recipe_search(query)
