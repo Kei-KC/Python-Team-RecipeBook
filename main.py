@@ -25,6 +25,7 @@ def main():
 			#	pull all recipes from JSON file and loop over recipe names
 			#	print recipe names in terminal
 			#	prompt user to select a recipe
+			print_db.print_all_names()
 			return
 
 		# CMD : SEARCH

@@ -2,6 +2,16 @@ import json
 import json_db as db
 import pandas as pd
 
+# PRINT ENTIRE NAME
+def print_all_names():
+	df = pd.read_csv('recipe_book.csv')
+	# for i in range(len(df)):
+	# 	print({}df['name'])
+	
+	for idx, recipes in df.iterrows():
+		name = recipes['name']
+		print("Recipe {}: {}".format(idx+1, name))
+
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
 	name = recipe["name"].values[0]
