@@ -22,10 +22,19 @@ def main():
 		if (cmd == 'viewAll' or cmd == 'viewall'):
 			os.system("cls||clear")
 			# TODO :
-			#	pull all recipes from JSON file and loop over recipe names
+			#	pull all recipes from CSV file and loop over recipe names
 			#	print recipe names in terminal
 			#	prompt user to select a recipe
-			print_db.print_all_names()
+			print_db.print_all_menu()
+			query = input("\nNow select a menu to view recipe! ")
+			recipe = db.recipe_search(query)
+
+			if (isinstance(recipe, pd.DataFrame)):
+				print("\n")
+				print_db.print_whole(recipe)
+			else:
+				print("{} does not exist in this recipe book.\n".format(query))
+			input("Press Enter to return to menu...")
 			return
 
 		# CMD : SEARCH
