@@ -42,6 +42,32 @@ def create_recipe(name, description, ingredients, steps):
     query_steps = """INSERT INTO `instructions` (`step_number`, `name`, `instruction`) VALUES (%s, %s, %s)"""
     for step in steps:
         i+=1
-        cursor.execute(query, (i, name, step))
+        cursor.execute(query_steps, (i, name, step))
+    conn.commit()
     cursor.close()
+   
+def view_instructions(name):
+    cursor = conn.cursor()
+    query = """select * from recipe where name = %s
+    """
+    cursor.execute(query, (name))
+    data = cursor.fetchall()
+    if not data:
+        print(f"No recipe found with name {name}")
+        return
+    query_instructions = """SELECT * FROM `instructions` WHERE name = %s order by step_number ASC
+    """
+    cursor.execute(query_instructions, (name))
+    data = cursor.fetchall()
+    instructions = []
+    for instruction in data:
+        instructions.append(instruction['instruction'])
+    return instructions 
+
+def export_db():
+    
+        
+    
+    
+
     
