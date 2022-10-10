@@ -18,7 +18,7 @@ def recipe_search(search_term):
 
 def fuzzy_search(search_term):
     df = pd.read_csv('recipe_book.csv')
-    match = difflib.get_close_matches(search_term, df['name'].tolist(), n=1, cutoff=0.6)
+    match = difflib.get_close_matches(search_term, df['name'].tolist(), n=4, cutoff=0.6)
     return match
 
 def ingredient_search(ingredient):
