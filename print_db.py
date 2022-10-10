@@ -64,3 +64,11 @@ def step_by_step(recipe):
 	return
 
 # RECIPE NOT FOUND
+def not_found(query):
+	border("{} does not exist in this recipe book.\nPress any key to return to menu.".format(query))
+	input("")
+	return
+
+
+
+

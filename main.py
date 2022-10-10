@@ -36,9 +36,7 @@ def main():
 				print_db.step_by_step(recipe)
 
 			else:
-				print("{} does not exist in this recipe book.\n".format(query))
-			
-			input("Press Enter to return to menu...")
+				print_db.not_found(query)
 
 		# CMD : SEARCH
 		elif (cmd == 'search'):
@@ -52,10 +50,9 @@ def main():
 				#	prompt user to view step by step or exit
 				print_db.print_whole(recipe)
 
-			else: # RECIPE NOT FOUND
-				print("{} does not exist in this recipe book.\n".format(query))
 
-			input("Press Enter to return to menu...")
+			else: # RECIPE NOT FOUND
+				print_db.not_found(query)
 
 		# CMD : CREATE
 		elif (cmd == 'create'):
