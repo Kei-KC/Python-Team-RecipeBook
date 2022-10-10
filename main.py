@@ -3,19 +3,19 @@ import json_db as db
 import pandas as pd
 import os # for clearing the terminal
 import print_db
+from tabulate import tabulate
 
 def main():
 	cmd = ""
 	while(cmd != "exit"):
-		print("""
-			Welcome To Pythonees Recipe Book.
+		print_db.border("""
+		Welcome To Pythonees Recipe Book.
 
-			Current functionalities of the recipe book include:
-			- View All Recipes (cmd: viewAll)
-			- Seach For Recipe (cmd: search)
-			- Create New Recipe (cmd: create)
-			- Exit (cmd: exit)
-			""")
+		Please select from the following:
+		* View Recipes (cmd: viewAll)
+		* Seach Recipe (cmd: search)
+		* Create Recipe (cmd: create)
+		* Exit (cmd: exit)""")
 		cmd = input("Enter a command: ")
 
 		# CMD : VIEWALL
@@ -67,12 +67,12 @@ def main():
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):	
-			print("Thank you for using Pythonees Recipe Book.")
+			print_db.border("Thank you for using Pythonees Recipe Book.")
 			continue
 
 		else: 
-			print("No valid command entered.")
-			input("Press Enter to try again...")
+			print_db.border("No valid command entered. Press any key to return to menu.")
+			input("")
 
 		os.system("cls||clear")
 

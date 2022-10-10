@@ -1,6 +1,14 @@
 import json
 import json_db as db
 import pandas as pd
+import os # for clearing the terminal
+from tabulate import tabulate
+import textwrap
+
+# FORMAT BORDER AROUND TEXT
+def border(text):
+	table = [[textwrap.dedent(text)]]
+	print(tabulate(table, tablefmt="grid", numalign="left"))
 
 # PRINT ENTIRE MENU
 def print_all_menu():
@@ -16,7 +24,7 @@ def print_whole(recipe):
 	inst_arr = recipe["instructions"].values[0].split(";")
 
 	# print name
-	print("Recipe Name: {}\n".format(name))
+	border("Recipe Name: {}\n".format(name))
 
 	# print ingredients
 	print("Ingredients:")
