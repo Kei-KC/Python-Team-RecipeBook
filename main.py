@@ -41,15 +41,32 @@ def main():
 		# CMD : SEARCH
 		elif (cmd == 'search'):
 			os.system("cls||clear")
-			query = input("Please enter your recipe name: ")
-			recipe = db.recipe_search(query)
+			print_db.border("Please enter a recipe name.")
+			query = input("")
+			os.system("cls||clear")
+			print_db.border("Searching for closest match to {}...".format(query))
 
-			if (isinstance(recipe, pd.DataFrame)): # RECIPE FOUND, PRINT RECIPE
+			fuzzy_match = db.fuzzy_search(query) # FUZZY SEARCH
+			if (len(fuzzy_match) == 1): # RECIPE FOUND, PRINT RECIPE
+				print_db.border("Recipe found for {}!\n".format(fuzzy_match[0]))
 				# TODO: 
-				#	print recipe whole (DONE)
+				#	print recipe whole
 				#	prompt user to view step by step or exit
+				recipe = db.recipe_search(fuzzy_match[0])
 				print_db.print_whole(recipe)
+				print_db.step_by_step(recipe)
 
+			elif (len(fuzzy_match) >= 2): # MULTIPLE RECIPES FOUND, CHOOSE RECIPE
+				# TODO: 
+				#   print list of recipes that match
+				#   prompt user to choose from the list
+				print("The following recipes matched your search:")
+				for recipe in fuzzy_match:
+					print(recipe)
+				choice = input("Please enter the recipe you would like to view: ")
+				recipe = db.recipe_search(choice)
+				print_db.print_whole(recipe)
+				print_db.step_by_step(recipe)
 
 			else: # RECIPE NOT FOUND
 				print_db.not_found(query)
