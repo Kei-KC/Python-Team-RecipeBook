@@ -78,8 +78,35 @@ def main():
 			#	prompt user to input name, ingredients and instructions
 			#	ingredients separated by ","
 			#	instructions separated by ";"
-			print("Sorry, this command is not currently available.")
-			input("Press Enter to return to menu...")
+			print_db.border("Enter your recipe's name.")
+			name = input("")
+
+			print_db.border("""
+				Enter your recipe's ingredients.
+				When finished, type 'DONE'.""")
+			ingr = ""
+			user = input("")
+			while(user != "DONE"):
+				ingr += user + ','
+				user = input("")
+
+			print_db.border("""
+				Enter your recipe's instructions step by step.
+				For example: 
+				1. combine eggs and milk
+				2. stir thoroughly
+
+				When finished, type 'DONE'.""")
+			inst = ""
+			user = input("")
+			while(user != "DONE"):
+				inst += user + ';'
+				user = input("")
+
+			db.recipe_creation(name, ingr, inst)
+			os.system("cls||clear")
+			print_db.border("New recipe for {} has been created!".format(name))
+			print_db.print_whole(db.recipe_search(name))
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):	
