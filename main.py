@@ -61,29 +61,32 @@ def main():
 			print_db.border("Please enter a recipe name.")
 			query = input("")
 			clear_terminal()
-			print_db.border("Searching for closest match to {}...".format(query))
 
 			fuzzy_match = db.fuzzy_search(query) # FUZZY SEARCH
+			#ingr_match = db.ingredient_search(query) # INGREDIENT SEARCH
+			#print(ingr_match)
+
 			if (len(fuzzy_match) == 1): # RECIPE FOUND, PRINT RECIPE
 				print_db.border("Recipe found for {}!\n".format(fuzzy_match[0]))
 				# TODO: 
 				#	print recipe whole
 				#	prompt user to view step by step or exit
-				recipe = db.recipe_search(fuzzy_match[0])
-				print_db.print_whole(recipe)
-				print_db.step_by_step(recipe)
+				print_db.print_whole(db.recipe_search(fuzzy_match[0]))
+				print_db.step_by_step(db.recipe_search(fuzzy_match[0]))
 
 			elif (len(fuzzy_match) >= 2): # MULTIPLE RECIPES FOUND, CHOOSE RECIPE
 				# TODO: 
 				#   print list of recipes that match
 				#   prompt user to choose from the list
-				print("The following recipes matched your search:")
+				print_db.border("The following recipes matched your search for {}:".format(query))
 				for recipe in fuzzy_match:
 					print(recipe)
-				choice = input("Please enter the recipe you would like to view: ")
-				recipe = db.recipe_search(choice)
-				print_db.print_whole(recipe)
-				print_db.step_by_step(recipe)
+				print_db.border("Please enter the recipe you would like to view.")
+				choice = input("")
+				clear_terminal()
+
+				print_db.print_whole(db.recipe_search(choice))
+				print_db.step_by_step(db.recipe_search(choice))
 
 			else: # RECIPE NOT FOUND
 				print_db.not_found(query)
