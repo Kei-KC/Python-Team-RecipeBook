@@ -9,6 +9,18 @@ def clear_terminal():
 	os.system("cls||clear")
 	return
 
+# USER INPUTS INGREDIENTS DURING CREATE
+#   accepts a delimiter
+#   for ingredients, ","
+#   for instructions, ";"
+def inputs_to_list(delimiter):
+	res = []
+	user = input("")
+	while(user != "DONE"):
+		res += user + delimiter
+		user = input("")
+	return res
+
 def main():
 	cmd = ""
 	while(cmd != "exit"):
@@ -83,30 +95,26 @@ def main():
 			#	prompt user to input name, ingredients and instructions
 			#	ingredients separated by ","
 			#	instructions separated by ";"
-			print_db.border("Enter your recipe's name.")
+			clear_terminal()
+			print_db.border("To create a new recipe, enter your recipe's name.")
 			name = input("")
 
+			# GET INGREDIENTS
 			print_db.border("""
 				Enter your recipe's ingredients.
 				When finished, type 'DONE'.""")
-			ingr = ""
-			user = input("")
-			while(user != "DONE"):
-				ingr += user + ','
-				user = input("")
+			ingr = inputs_to_list(',')
 
+			# GET INSTRUCTIONS
 			print_db.border("""
 				Enter your recipe's instructions step by step.
+				
 				For example: 
 				1. combine eggs and milk
 				2. stir thoroughly
 
 				When finished, type 'DONE'.""")
-			inst = ""
-			user = input("")
-			while(user != "DONE"):
-				inst += user + ';'
-				user = input("")
+			inst = inputs_to_list(';')
 
 			db.recipe_creation(name, ingr, inst)
 			clear_terminal()
