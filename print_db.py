@@ -5,6 +5,11 @@ import os # for clearing the terminal
 from tabulate import tabulate
 import textwrap
 
+# CLEAR TERMINAL
+def clear_terminal():
+	os.system("cls||clear")
+	return
+
 # FORMAT BORDER AROUND TEXT
 def border(text):
 	table = [[textwrap.dedent(text)]]
@@ -46,11 +51,11 @@ def step_by_step(recipe):
 	choice = input("").lower()
 	
 	if (choice == "y" or choice == "yes"): # step-by-step
-		os.system("cls||clear")
+		clear_terminal()
 		border("""
-			Viewing instructions.
+			Viewing instructions for {}.
 			Press any key to view next instruction.
-			""")
+			""".format(recipe["name"].values[0]))
 		inst_arr = recipe["instructions"].values[0].split(";")
 
 		for inst in inst_arr: 

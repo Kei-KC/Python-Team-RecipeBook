@@ -5,6 +5,10 @@ import os # for clearing the terminal
 import print_db
 from tabulate import tabulate
 
+def clear_terminal():
+	os.system("cls||clear")
+	return
+
 def main():
 	cmd = ""
 	while(cmd != "exit"):
@@ -20,18 +24,19 @@ def main():
 
 		# CMD : VIEWALL
 		if (cmd == 'viewAll' or cmd == 'viewall'):
-			os.system("cls||clear")
+			clear_terminal()
 			# TODO :
 			#	pull all recipes from CSV file and loop over recipe names
 			#	print recipe names in terminal
 			#	prompt user to select a recipe
+			print_db.border("All Recipes")
 			print_db.print_all_menu()
 
 			query = input("\nNow select a menu to view recipe! ")
 			recipe = db.recipe_search(query)
 
 			if (isinstance(recipe, pd.DataFrame)):
-				os.system("cls||clear")
+				clear_terminal()
 				print_db.print_whole(recipe)
 				print_db.step_by_step(recipe)
 
@@ -40,10 +45,10 @@ def main():
 
 		# CMD : SEARCH
 		elif (cmd == 'search'):
-			os.system("cls||clear")
+			clear_terminal()
 			print_db.border("Please enter a recipe name.")
 			query = input("")
-			os.system("cls||clear")
+			clear_terminal()
 			print_db.border("Searching for closest match to {}...".format(query))
 
 			fuzzy_match = db.fuzzy_search(query) # FUZZY SEARCH
@@ -104,12 +109,13 @@ def main():
 				user = input("")
 
 			db.recipe_creation(name, ingr, inst)
-			os.system("cls||clear")
+			clear_terminal()
 			print_db.border("New recipe for {} has been created!".format(name))
 			print_db.print_whole(db.recipe_search(name))
 
 		# CMD : EXIT
-		elif (cmd == 'exit'):	
+		elif (cmd == 'exit'):
+			clear_terminal()	
 			print_db.border("Thank you for using Pythonees Recipe Book.")
 			continue
 
@@ -117,7 +123,7 @@ def main():
 			print_db.border("No valid command entered. Press any key to return to menu.")
 			input("")
 
-		os.system("cls||clear")
+		clear_terminal()
 
 	exit();
 
