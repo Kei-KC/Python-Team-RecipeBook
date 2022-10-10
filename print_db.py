@@ -42,4 +42,25 @@ def print_whole(recipe):
 
 # PRINT RECIPE STEP-BY-STEP
 def step_by_step(recipe):
+	border("Would you like to view instructions step by step? (Y/N)")
+	choice = input("").lower()
+	
+	if (choice == "y" or choice == "yes"): # step-by-step
+		os.system("cls||clear")
+		border("""
+			Viewing instructions.
+			Press any key to view next instruction.
+			""")
+		inst_arr = recipe["instructions"].values[0].split(";")
+
+		for inst in inst_arr: 
+			input("{}\n".format(inst))
+
+		border("""
+			Finished viewing instructions.
+			Press any key to return to menu.""")
+		input("")
+
 	return
+
+# RECIPE NOT FOUND

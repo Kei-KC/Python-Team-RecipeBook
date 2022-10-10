@@ -33,6 +33,8 @@ def main():
 			if (isinstance(recipe, pd.DataFrame)):
 				os.system("cls||clear")
 				print_db.print_whole(recipe)
+				print_db.step_by_step(recipe)
+
 			else:
 				print("{} does not exist in this recipe book.\n".format(query))
 			
