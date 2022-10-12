@@ -6,9 +6,14 @@ def recipe_creation(name, ingredients, instructions):
     df = pd.read_csv('recipe_book.csv')
     if name in df['name'].values:
         return
-    recipe = {'name':name,'ingredients':ingredients,'instructions':instructions}
-    df.append(recipe)
-    df.to_csv('recipe_book.csv')
+    recipe = {
+        'name':name,
+        'ingredients':ingredients,
+        'instructions':instructions
+    }
+    df = pd.DataFrame(recipe)
+    #print(df)
+    df.to_csv('recipe_book.csv', mode='a', index=False, header=False)
 
 def recipe_search(search_term):
     df = pd.read_csv('recipe_book.csv')

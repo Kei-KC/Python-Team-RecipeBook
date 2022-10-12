@@ -59,7 +59,7 @@ def step_by_step(recipe):
 		inst_arr = recipe["instructions"].values[0].split(";")
 
 		for inst in inst_arr: 
-			input("{}\n".format(inst))
+			input("{}".format(inst))
 
 		border("""
 			Finished viewing instructions.

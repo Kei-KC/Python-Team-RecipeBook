@@ -14,11 +14,12 @@ def clear_terminal():
 #   for ingredients, ","
 #   for instructions, ";"
 def inputs_to_list(delimiter):
-	res = []
+	string = ""
 	user = input("")
 	while(user != "DONE"):
-		res += user + delimiter
+		string += user + delimiter
 		user = input("")
+	res = [string]
 	return res
 
 def main():
@@ -120,7 +121,7 @@ def main():
 			inst = inputs_to_list(';')
 
 			db.recipe_creation(name, ingr, inst)
-			clear_terminal()
+			#clear_terminal()
 			print_db.border("New recipe for {} has been created!".format(name))
 			print_db.print_whole(db.recipe_search(name))
 
