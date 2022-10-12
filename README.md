@@ -23,7 +23,6 @@
 	</ol>
 </details>
 
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -36,9 +35,6 @@ The goal os the project was to create a recipe book with three features:
 
 Pythonees Recipe Book includes all three features, additionally with fuzzy search and a GUI implemented.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- BUILT WITH -->
 ### Built With
 * python3
@@ -49,16 +45,12 @@ Pythonees Recipe Book includes all three features, additionally with fuzzy searc
 * tabulate
 * textwrap
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 <!-- CONFLUENCE WIKI --> 
 ### Confluence Wiki 
 
 The confluence wiki documentation for this project can be found <a href="https://pythonees-recipe-book.atlassian.net/wiki/spaces/CRP1/pages/2850817/User+Guide+to+Pythonees+Recipe+Book">here.</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED --> 
 ## Getting Started
@@ -78,25 +70,22 @@ In order for this program to run, the following must be installed on your local 
 
 To set up and run the project locally, first make sure that python3 is installed:
 
-	`$ brew install python`
+	$ brew install python
 
 Clone the repository:
 
-	`git clone https://github.com/Kei-KC/pythonees-recipe-book.git`
+	git clone https://github.com/Kei-KC/pythonees-recipe-book.git
 
 Install the necessary NPM packages:
 
-	```
 	npm install pandas difflib json os textwrap
 	pip install tabulate
-	```
 
 Run the program:
 
-	`python3 main.py`
+	python3 main.py
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- CONTACT --> 
 ## Contact
