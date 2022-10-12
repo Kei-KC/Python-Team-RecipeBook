@@ -108,6 +108,7 @@ def main():
 				Enter your recipe's ingredients.
 				When finished, type 'DONE'.""")
 			ingr = inputs_to_list(',')
+			print(ingr)
 
 			# GET INSTRUCTIONS
 			print_db.border("""
@@ -119,11 +120,16 @@ def main():
 
 				When finished, type 'DONE'.""")
 			inst = inputs_to_list(';')
+			print(inst)
 
 			db.recipe_creation(name, ingr, inst)
 			#clear_terminal()
-			print_db.border("New recipe for {} has been created!".format(name))
+			print_db.border("""
+				New recipe for {} has been created!
+				Press any key to return to menu.""".format(name))
 			print_db.print_whole(db.recipe_search(name))
+			input("")
+
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):

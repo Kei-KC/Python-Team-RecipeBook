@@ -35,13 +35,13 @@ def print_whole(recipe):
 	print("Ingredients:")
 	for ingr in ingr_arr: 
 		print("{}".format(ingr))
-	print("\n")
+	print("")
 
 	# print instructions
 	print("Instructions:")
 	for inst in inst_arr: 
 		print("{}".format(inst))
-	print("\n")
+	print("")
 
 	return
 
