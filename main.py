@@ -38,14 +38,11 @@ def main():
 		# CMD : VIEWALL
 		if (cmd == 'viewAll' or cmd == 'viewall'):
 			clear_terminal()
-			# TODO :
-			#	pull all recipes from CSV file and loop over recipe names
-			#	print recipe names in terminal
-			#	prompt user to select a recipe
 			print_db.border("All Recipes")
 			print_db.print_all_menu()
 
-			query = input("\nNow select a menu to view recipe! ")
+			print_db.border("Please select a recipe to view.")
+			query = input("")
 			recipe = db.recipe_search(query)
 
 			if (isinstance(recipe, pd.DataFrame)):
@@ -69,16 +66,10 @@ def main():
 
 			if (len(fuzzy_match) == 1): # RECIPE FOUND, PRINT RECIPE
 				print_db.border("Recipe found for {}!\n".format(fuzzy_match[0]))
-				# TODO: 
-				#	print recipe whole
-				#	prompt user to view step by step or exit
 				print_db.print_whole(db.recipe_search(fuzzy_match[0]))
 				print_db.step_by_step(db.recipe_search(fuzzy_match[0]))
 
 			elif (len(fuzzy_match) >= 2): # MULTIPLE RECIPES FOUND, CHOOSE RECIPE
-				# TODO: 
-				#   print list of recipes that match
-				#   prompt user to choose from the list
 				print_db.border("The following recipes matched your search for {}:".format(query))
 				for recipe in fuzzy_match:
 					print(recipe)
@@ -94,42 +85,46 @@ def main():
 
 		# CMD : CREATE
 		elif (cmd == 'create'):
-			# TODO: 
-			#	call to db.recipe_creation() 
-			#	prompt user to input name, ingredients and instructions
 			#	ingredients separated by ","
 			#	instructions separated by ";"
 			clear_terminal()
 			print_db.border("To create a new recipe, enter your recipe's name.")
 			name = input("")
 
-			# GET INGREDIENTS
-			print_db.border("""
-				Enter your recipe's ingredients.
-				When finished, type 'DONE'.""")
-			ingr = inputs_to_list(',')
-			print(ingr)
+			if isinstance(db.recipe_search(name), pd.DataFrame): # RECIPE EXISTS WITH THE SAME NAME
+				clear_terminal()
+				print_db.border("Oops! A recipe already exists for {}.".format(name))
+				print_db.print_whole(db.recipe_search(name))
 
-			# GET INSTRUCTIONS
-			print_db.border("""
-				Enter your recipe's instructions step by step.
-				
-				For example: 
-				1. combine eggs and milk
-				2. stir thoroughly
+			else: # RECIPE DOES NOT EXIST
+				# GET INGREDIENTS
+				print_db.border("""
+					Enter your recipe's ingredients.
+					After each ingredient, press ENTER.
+					When finished, type 'DONE'.""")
+				ingr = inputs_to_list(',')
+				#print(ingr)
 
-				When finished, type 'DONE'.""")
-			inst = inputs_to_list(';')
-			print(inst)
+				# GET INSTRUCTIONS
+				print_db.border("""
+					Enter your recipe's instructions step by step.
+					After each step, press ENTER.
+					
+					For example: 
+					1. combine eggs and milk
+					2. stir thoroughly
 
-			db.recipe_creation(name, ingr, inst)
-			#clear_terminal()
-			print_db.border("""
-				New recipe for {} has been created!
-				Press any key to return to menu.""".format(name))
-			print_db.print_whole(db.recipe_search(name))
+					When finished, type 'DONE'.""")
+				inst = inputs_to_list(';')
+				#print(inst)
+
+				db.recipe_creation(name, ingr, inst)
+				clear_terminal()
+				print_db.border("New recipe for {} has been created!".format(name))
+				print_db.print_whole(db.recipe_search(name))
+			
+			print_db.border("Press any key to return to menu.")
 			input("")
-
 
 		# CMD : EXIT
 		elif (cmd == 'exit'):

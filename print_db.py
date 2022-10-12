@@ -21,6 +21,7 @@ def print_all_menu():
 	for idx, recipes in df.iterrows():
 		name = recipes['name']
 		print("Menu {}: {}".format(idx+1, name))
+	print("")
 
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
