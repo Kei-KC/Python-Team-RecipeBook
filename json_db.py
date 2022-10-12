@@ -14,7 +14,7 @@ def recipe_creation(name, ingredients, instructions):
         'instructions':instructions
     }
     df = pd.DataFrame(recipe)
-    print(df)
+    #print(df)
     df.to_csv('recipe_book.csv', mode='a', index=False, header=False)
 
 def recipe_search(search_term):
