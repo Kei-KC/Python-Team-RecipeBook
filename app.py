@@ -63,7 +63,7 @@ create.place(anchor = CENTER, relx= 0.5, rely=0.8)
 # EXIT 
 def exit():
     root.destroy()
-exit = tk.Button(canvas, text = "Close the Book", padx = 5, pady = 5, 
+exit = tk.Button(canvas, text = "Close Book", padx = 5, pady = 5, 
                 fg = "#000", bg = "gray", font = ('Consolas 15', 14),
                 command = exit)
 exit.place(anchor = CENTER, relx = 0.5, rely = 0.9)
