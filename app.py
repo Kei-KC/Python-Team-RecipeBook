@@ -24,53 +24,53 @@ frame.place(relheight = 0.7, relwidth = 0.7,
 
 # WELCOME MESSAGE
 welcomeMsg = tk.Label(canvas, text = "Welcome to the Pythonees Recipe Book!", 
-                        fg = "#000", bg = "#e3e398", font = ("Consolas 15", 20, 'bold'))
+                        fg = "#000", bg = "#e3e398", font = ("Consolas 15", 25, 'bold'))
 welcomeMsg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 
 # VIEWALL
 def viewall_btn_nextPg():
     root.withdraw()
-    
     import app_viewall_p1
     print_db.print_all_menu()
     
 viewAll = tk.Button(frame, text = "View All Menu", padx = 5, pady = 5, 
-                    fg = "#000", bg = "gray", font = ('Consolas 15', 14),
+                    fg = "#000", bg = "white", font = ('Consolas 15', 18),
                     command = viewall_btn_nextPg)
-viewAll.place(anchor = CENTER, relx = 0.5, rely =0.2)
+viewAll.place(anchor = CENTER, relx = 0.5, rely = 0.2, relheight = 0.15, relwidth = 0.7)
 
 # SEARCH
 def search_btn_nextPg():
     root.withdraw()
     import app_search_p1 
-search = tk.Button(frame, text = "Search Recipe", padx = 5, pady = 5, 
-                        fg = "#000", bg = "gray", font = ('Consolas 15', 14),
-                        command = search_btn_nextPg)
-search.place(anchor = CENTER, relx= 0.5, rely=0.4)
+search = tk.Button(frame, text = "Search Recipe",
+                    padx = 5, pady = 5, 
+                    fg = "#000", bg = "gray", font = ('Consolas 15', 18),
+                    command = search_btn_nextPg)
+search.place(anchor = CENTER, relx = 0.5, rely = 0.4, relheight = 0.15, relwidth = 0.7)
 
 # CREATE 
 def create_btn_nextPg():
     root.withdraw()
     import app_create_p1
 create = tk.Button(frame, text = "Create Recipe", padx = 5, pady = 5, 
-                    fg="#000", bg="gray", font=('Consolas 15', 14),
+                    fg="#000", bg="gray", font=('Consolas 15', 18),
                     command = create_btn_nextPg)
-create.place(anchor = CENTER, relx= 0.5, rely=0.6)
+create.place(anchor = CENTER, relx = 0.5, rely = 0.6, relheight = 0.15, relwidth = 0.7)
 
 # USER GUIDE 
 def guide_btn_nextPg():
     webbrowser.open_new("https://pythonees-recipe-book.atlassian.net/l/cp/rLSbF7WG")
 create = tk.Button(frame, text = "User Guide", padx = 5, pady = 5, 
-                    fg="#000", bg="gray", font=('Consolas 15', 14),
+                    fg="#000", bg="gray", font=('Consolas 15', 18),
                     command = guide_btn_nextPg)
-create.place(anchor = CENTER, relx= 0.5, rely=0.8)
+create.place(anchor = CENTER, relx = 0.5, rely = 0.8, relheight = 0.15, relwidth = 0.7)
 
 # EXIT 
 def exit():
     root.destroy()
-exit = tk.Button(canvas, text = "Close Book", padx = 5, pady = 5, 
-                fg = "#000", bg = "gray", font = ('Consolas 15', 14),
+exit = tk.Button(canvas, text = "X", padx = 5, pady = 5, 
+                fg = "#000", bg = "gray", font = ('Consolas 15', 18),
                 command = exit)
-exit.place(anchor = CENTER, relx = 0.5, rely = 0.9)
+exit.place(anchor = CENTER, relx = 0.5, rely = 0.9, relheight = 0.05, relwidth = 0.1)
     
 root.mainloop()
