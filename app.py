@@ -15,10 +15,8 @@ canvas = tk.Canvas(root, height = "700", width = "700",
                         bg = "#EFE6D5")
 canvas.pack()
 
-# LOAD IMAGE
-img = ImageTk.PhotoImage(Image.open("canvas-bg.png"))
-# ADD IMAGE
-canvas.create_image(700/2, 700/2, anchor = CENTER,image = img)
+# canvas_bg = ImageTk.PhotoImage(Image.open("canvas-bg.png")) # LOAD IMAGE
+# canvas.create_image(700/2, 700/2, anchor = CENTER,image = canvas_bg) # ADD IMAGE
 
 frame = tk.Frame(root, bg = "#FFF")
 frame.place(relheight = 0.7, relwidth = 0.7, 
@@ -32,6 +30,7 @@ welcomeMsg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 # VIEWALL
 def viewall_btn_nextPg():
     root.withdraw()
+    
     import app_viewall_p1
     print_db.print_all_menu()
     
