@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from PIL import Image,ImageTk
 import subprocess as sub
 import os
 import print_db
@@ -11,8 +12,13 @@ root.title('Pythonees Recipe Book')
 root.resizable(False, False) # FIXED WINDOW SIZE
 
 canvas = tk.Canvas(root, height = "700", width = "700", 
-                        bg = "#e3e398")
+                        bg = "#EFE6D5")
 canvas.pack()
+
+# LOAD IMAGE
+img = ImageTk.PhotoImage(Image.open("canvas-bg.png"))
+# ADD IMAGE
+canvas.create_image(700/2, 700/2, anchor = CENTER,image = img)
 
 frame = tk.Frame(root, bg = "#FFF")
 frame.place(relheight = 0.7, relwidth = 0.7, 
@@ -20,7 +26,7 @@ frame.place(relheight = 0.7, relwidth = 0.7,
 
 # WELCOME MESSAGE
 welcomeMsg = tk.Label(canvas, text = "Welcome to the Pythonees Recipe Book!", 
-                        fg = "#000", bg = "#e3e398", font = ("Consolas 15", 20))
+                        fg = "#000", bg = "#e3e398", font = ("Consolas 15", 20, 'bold'))
 welcomeMsg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 
 # VIEWALL
