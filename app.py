@@ -4,7 +4,7 @@ import subprocess as sub
 import os
 import print_db
 from threading import Thread
-# import webview # TO VIEW USER GUIDE
+import webbrowser
 
 root = tk.Tk()
 root.title('Pythonees Recipe Book')
@@ -36,7 +36,7 @@ viewAll.place(anchor = CENTER, relx = 0.5, rely =0.2)
 
 # SEARCH
 def search_btn_nextPg():
-    # canvas.destroy()
+    root.withdraw()
     import app_search_p1 
 search = tk.Button(frame, text = "Search Recipe", padx = 5, pady = 5, 
                         fg = "#000", bg = "gray", font = ('Consolas 15', 14),
@@ -45,7 +45,7 @@ search.place(anchor = CENTER, relx= 0.5, rely=0.4)
 
 # CREATE 
 def create_btn_nextPg():
-    canvas.destroy()
+    root.withdraw()
     import app_create_p1
 create = tk.Button(frame, text = "Create Recipe", padx = 5, pady = 5, 
                     fg="#000", bg="gray", font=('Consolas 15', 14),
@@ -54,8 +54,7 @@ create.place(anchor = CENTER, relx= 0.5, rely=0.6)
 
 # USER GUIDE 
 def guide_btn_nextPg():
-    canvas.destroy()
-    import app_guide_p1
+    webbrowser.open_new("https://pythonees-recipe-book.atlassian.net/l/cp/rLSbF7WG")
 create = tk.Button(frame, text = "User Guide", padx = 5, pady = 5, 
                     fg="#000", bg="gray", font=('Consolas 15', 14),
                     command = guide_btn_nextPg)
