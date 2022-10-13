@@ -16,7 +16,8 @@ def clear_terminal():
 def inputs_to_list(delimiter):
 	string = ""
 	user = input("")
-	while(user != "DONE"):
+
+	while(user.upper() != "DONE"): # avoid case sensitivity issue
 		string += user + delimiter
 		user = input("")
 	res = [string]
