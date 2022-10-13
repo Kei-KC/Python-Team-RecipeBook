@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import *
 import subprocess as sub
 import os
-from app_func import *
 import print_db
 from threading import Thread
 # import webview # TO VIEW USER GUIDE
