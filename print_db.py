@@ -21,6 +21,7 @@ def print_all_menu():
 	for idx, recipes in df.iterrows():
 		name = recipes['name']
 		print("Menu {}: {}".format(idx+1, name))
+	print("")
 
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
@@ -35,13 +36,13 @@ def print_whole(recipe):
 	print("Ingredients:")
 	for ingr in ingr_arr: 
 		print("{}".format(ingr))
-	print("\n")
+	print("")
 
 	# print instructions
 	print("Instructions:")
 	for inst in inst_arr: 
 		print("{}".format(inst))
-	print("\n")
+	print("")
 
 	return
 
@@ -59,7 +60,7 @@ def step_by_step(recipe):
 		inst_arr = recipe["instructions"].values[0].split(";")
 
 		for inst in inst_arr: 
-			input("{}\n".format(inst))
+			input("{}".format(inst))
 
 		border("""
 			Finished viewing instructions.
