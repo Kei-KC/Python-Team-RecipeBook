@@ -25,12 +25,9 @@ welcomeMsg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 
 # VIEWALL
 def viewall_btn_nextPg():
-    # if prev == TRUE:
-    #     app_viewall_p1.root.deiconify()
     root.withdraw()
     import app_viewall_p1
     print_db.print_all_menu()
-    # root.destroy()
     
 viewAll = tk.Button(frame, text = "View All Menu", padx = 5, pady = 5, 
                     fg = "#000", bg = "gray", font = ('Consolas 15', 14),
