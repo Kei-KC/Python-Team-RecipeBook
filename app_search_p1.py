@@ -4,6 +4,7 @@ import os
 import print_db
 import subprocess as sub
 from PIL import Image,ImageTk
+from tkmacosx import Button as button
 
 # BASIC COMPONENTS
 s_root = tk.Tk()
@@ -16,7 +17,7 @@ frame.place(relheight = 0.7, relwidth = 0.7, relx = 0.5, rely = 0.5, anchor = CE
 
 msg = tk.Label(frame, text = "Which recipe would you like to search?",
                 fg = "#000", bg = "#e3e398", 
-                font = ("Consolas 15", 20, 'bold'))
+                font = ("Consolas 15", 25, 'bold'))
 msg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 
 # BACK TO START
@@ -29,7 +30,7 @@ def prev():
     # img = ImageTk.PhotoImage(Image.open("canvas-bg.png"))
     # app.canvas.create_image(700/2, 700/2, anchor = CENTER,image = img)
      
-prev = tk.Button(frame, text = "Previous", padx = 5, pady = 5, 
-                    fg="#000", bg="gray", font=('Consolas 15', 14),
+prev = button(canvas, text = "Previous", padx = 5, pady = 5, bd = 0,
+                    fg="#000", bg="#fff", font=('Consolas 15', 14), 
                     command = prev)
-prev.place(anchor = CENTER, relx= 0.5, rely=0.8)
+prev.place(anchor = CENTER, relx= 0.5, rely=0.9)
