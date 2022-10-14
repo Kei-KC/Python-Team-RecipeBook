@@ -18,10 +18,14 @@ def border(text):
 # PRINT ENTIRE MENU
 def print_all_menu():
 	df = pd.read_csv('recipe_book.csv')
+	data = {}
 	for idx, recipes in df.iterrows():
 		name = recipes['name']
 		print("Menu {}: {}".format(idx+1, name))
+		data[idx+1]=name
 	print("")
+
+	return data
 
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
