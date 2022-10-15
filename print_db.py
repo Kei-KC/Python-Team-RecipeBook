@@ -35,11 +35,8 @@ def get_recipe(recipe):
 	
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
-	print('recipe',type(recipe), recipe)
-
+	# print('recipe',type(recipe), recipe)
 	name = recipe["name"].values[0]
-	# print('recipe = ', recipe)
-	# print('name = ', name)
 	ingr_arr = recipe["ingredients"].values[0].split(",")
 	inst_arr = recipe["instructions"].values[0].split(";")
 
@@ -54,7 +51,7 @@ def print_whole(recipe):
 	ingredients = {}
 	for ingr in ingr_arr: 
 		print("{}".format(ingr))
-	ingredients[ingr] = "" # save instructions as key
+		ingredients[ingr] = "" # save instructions as key
 	print("")
 
 	# print instructions
@@ -62,7 +59,7 @@ def print_whole(recipe):
 	instructions = {}
 	for inst in inst_arr: 
 		print("{}".format(inst))
-	instructions[inst] = "" # save instructions as key
+		instructions[inst] = "" # save instructions as key
 	# print(instructions)
 	print("")
 
