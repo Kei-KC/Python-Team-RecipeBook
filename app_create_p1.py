@@ -6,7 +6,7 @@ import subprocess as sub
 from tkmacosx import Button as button
 
 # NEW WINDOW
-def view(data):
+def view():
     c_root = tk.Tk()
     c_root.title('Pythonees Recipe Book')
     c_root.resizable(False, False) # WINDOW NOT RESIZABLE
@@ -21,9 +21,9 @@ def view(data):
     msg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 
     # USER INPUT
-    to_search = tk.Entry(frame) 
-    to_search.place(anchor = CENTER, height = 50, relx = 0.5, rely = 0.4)
-    to_search.get() # capture user input
+    to_create = tk.Entry(frame) 
+    to_create.place(anchor = CENTER, height = 50, relx = 0.5, rely = 0.4)
+    to_create.get() # capture user input
 
     # SHOW RECIPE
     def show_recipe():
@@ -34,7 +34,7 @@ def view(data):
                     fg="#000", bg="#ecf2c7", font=('Consolas 15', 14),
                     command = show_recipe)
     submit.place(anchor = CENTER, relx= 0.5, rely = 0.6)
-    
+
     # BACK TO START
     def prev(): 
         c_root.destroy()

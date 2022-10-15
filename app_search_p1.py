@@ -7,11 +7,12 @@ from PIL import Image,ImageTk
 from tkmacosx import Button as button
 
 # NEW WINDOW
-def view(data):
+def view():
     s_root = tk.Tk()
     s_root.title('Pythonees Recipe Book')
     s_root.resizable(False, False) # WINDOW NOT RESIZABLE
-    canvas = tk.Canvas(s_root, height = "700", width = "700", bg = "#e3e398").pack()
+    canvas = tk.Canvas(s_root, height = "700", width = "700", bg = "#e3e398")
+    canvas.pack()
     frame = tk.Frame(s_root, bg = "#FFF")
     frame.place(relheight = 0.7, relwidth = 0.7, relx = 0.5, rely = 0.5, anchor = CENTER) 
 
@@ -40,10 +41,6 @@ def view(data):
         s_root.destroy()
         import app
         app.root.deiconify()
-        app.root.lift()
-        app.root.focus_force()
-        # img = ImageTk.PhotoImage(Image.open("canvas-bg.png"))
-        # app.canvas.create_image(700/2, 700/2, anchor = CENTER,image = img)
     prev = button(canvas, text = "Previous", padx = 5, pady = 5, borderless = 1,
                         fg="#000", bg="#fff", font=('Consolas 15', 14), 
                         command = prev)

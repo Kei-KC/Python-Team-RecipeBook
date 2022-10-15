@@ -9,7 +9,8 @@ def view(data):
     v_root = tk.Tk()
     v_root.title('Pythonees Recipe Book')
     v_root.resizable(False, False) # window not resizable
-    canvas = tk.Canvas(v_root, height = "700", width = "700", bg = "#e3e398").pack()
+    canvas = tk.Canvas(v_root, height = "700", width = "700", bg = "#e3e398")
+    canvas.pack()
     frame = tk.Frame(v_root, bg = "#FFF")
     frame.place(relheight = 0.7, relwidth = 0.7, relx = 0.5, rely = 0.5, anchor = CENTER) 
 

@@ -30,25 +30,35 @@ def print_all_menu():
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
 	name = recipe["name"].values[0]
+	print('recipe = ', recipe)
+	print('name = ', name)
 	ingr_arr = recipe["ingredients"].values[0].split(",")
 	inst_arr = recipe["instructions"].values[0].split(";")
 
 	# print name
 	border("Recipe Name: {}\n".format(name))
-
+	names = {}
+	names[name] = ""
+	print(names)
+	
 	# print ingredients
 	print("Ingredients:")
+	ingredients = {}
 	for ingr in ingr_arr: 
 		print("{}".format(ingr))
+	ingredients[ingr] = "" # save instructions as key
 	print("")
 
 	# print instructions
 	print("Instructions:")
+	instructions = {}
 	for inst in inst_arr: 
 		print("{}".format(inst))
+	instructions[inst] = "" # save instructions as key
+	# print(instructions)
 	print("")
 
-	return
+	return names, ingredients, instructions
 
 # PRINT RECIPE STEP-BY-STEP
 def step_by_step(recipe):
