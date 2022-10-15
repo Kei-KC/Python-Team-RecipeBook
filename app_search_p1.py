@@ -2,13 +2,11 @@ import tkinter as tk
 from tkinter import *
 import os
 import print_db
-import subprocess as sub
 from PIL import Image, ImageTk
 from tkmacosx import Button as button
+import app_show_recipe as show
 
 # NEW WINDOW
-
-
 def view():
     s_root = tk.Tk()
     s_root.title('Pythonees Recipe Book')
@@ -26,16 +24,15 @@ def view():
     # USER INPUT
     to_search = tk.Entry(frame)
     to_search.place(anchor=CENTER, height=50, relx=0.5, rely=0.4)
-    to_search.get()  # capture user input
 
-    # SHOW RECIPE
-    def show_recipe():
-        print("TBD")
+    # TRIGGERED ON BUTTON CLICK
+    def get_input():
+        return show.show_recipe(to_search.get().lower())
 
     # SUBMIT INPUT
     submit = button(frame, text="Go!", padx=5, pady=5, borderless=1,
                     fg="#000", bg="#ecf2c7", font=('Consolas 15', 14),
-                    command=show_recipe)
+                    command=get_input)
     submit.place(anchor=CENTER, relx=0.5, rely=0.6)
 
     # BACK TO START
