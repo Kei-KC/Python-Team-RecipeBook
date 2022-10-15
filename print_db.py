@@ -27,11 +27,19 @@ def print_all_menu():
 
 	return data
 
+# GET DataFrame
+def get_recipe(recipe): 
+	from json_db import recipe_search
+	recipe = recipe_search(recipe)
+	return print_whole(recipe)
+	
 # PRINT ENTIRE RECIPE 
 def print_whole(recipe):
+	print('recipe',type(recipe), recipe)
+
 	name = recipe["name"].values[0]
-	print('recipe = ', recipe)
-	print('name = ', name)
+	# print('recipe = ', recipe)
+	# print('name = ', name)
 	ingr_arr = recipe["ingredients"].values[0].split(",")
 	inst_arr = recipe["instructions"].values[0].split(";")
 
