@@ -31,11 +31,36 @@ def view(data):
         frame = tk.Frame(v_root, bg = "#FFF")
         frame.place(relheight = 0.7, relwidth = 0.7, relx = 0.5, rely = 0.5, anchor = CENTER) 
         
-        names, ingredients, instructions = print_db.print_whole(menu_list[0])
-        name = tk.Label(frame, text = names,
-                    fg = "#000", bg = "#e3e398", 
-                    font = ("Consolas 15", 25, 'bold'))
-        name.place(anchor = CENTER, relx = 0.5, rely = 0.1)
+        names, ingredients, instructions = print_db.get_recipe(recipe)
+
+        # print recipe name
+        for key in names: 
+            recipe_name = key.capitalize() + " Recipe"
+        name = tk.Label(frame, text = recipe_name, fg = "#000", bg = "#e3e398", 
+                        font = ("Consolas 15", 25, 'bold'))
+        name.place(anchor = CENTER, relx = 0.5, rely = 0.1) 
+
+        # print ingredients
+        i = 1
+        ingredient_all = ""
+        while i <= len(ingredients): 
+            for key in ingredients.keys():
+                ingredient_all += str(i) + ". " + key + "\n"
+                i += 1
+        ingredient = tk.Label(frame, text = "[ Ingredients ]\n" + ingredient_all, 
+                              fg = "#000", bg = "#fff", font = ("Consolas 15", 20, 'bold'))
+        ingredient.place(anchor = CENTER, relx = 0.5, rely = 0.3)
+
+        # print instructions
+        i = 1
+        instruction_all = ""
+        while i <= len(instructions): 
+            for key in instructions.keys():
+                instruction_all += key + "\n"
+                i += 1 
+        instruction = tk.Label(frame, text = "[ Instructions ]\n" + instruction_all,
+                                fg = "#000", bg = "#fff", font = ("Consolas 15", 20, 'bold'))
+        instruction.place(anchor = CENTER, relx = 0.5, rely = 0.6)  
 
     # PRINT ALL MENU
     menu_list = list(data.values()) # list of menus
@@ -45,7 +70,7 @@ def view(data):
     menu1 = tk.Label(frame, text = menu_list[0].capitalize(), 
                      bg = m_bg, fg = m_font_color, font = m_font_style)
     menu1.place(anchor = CENTER, relx = 0.5, rely = 0.3)
-    # menu1.bind("<Button>", show_recipe(menu_list[0]))
+    menu1.bind("<Button-1>", show_recipe(menu_list[0]))
 
     menu2 = tk.Label(frame, text = menu_list[1].capitalize(), 
                      bg = m_bg, fg = m_font_color, font = m_font_style)
