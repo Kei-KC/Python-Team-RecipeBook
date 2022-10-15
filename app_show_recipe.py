@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import *
-import os
 import print_db
 from tkmacosx import Button as button
 
@@ -33,7 +32,7 @@ def show_recipe(recipe):
             i += 1
     ingredient = tk.Label(frame, text="[ Ingredients ]\n" + ingredient_all,
                           fg="#000", bg="#fff", font=("Consolas 15", 18, 'bold'))
-    ingredient.place(anchor=CENTER, relx=0.5, rely=0.4)
+    ingredient.place(anchor=CENTER, relx=0.5, rely=0.35)
 
     # print instructions
     i = 1
@@ -44,6 +43,20 @@ def show_recipe(recipe):
             i += 1
     instruction = tk.Label(frame, text="[ Instructions ]\n" + instruction_all,
                            fg="#000", bg="#fff", font=("Consolas 15", 18, 'bold'))
-    instruction.place(anchor=CENTER, relx=0.5, rely=0.7)
+    instruction.place(anchor=CENTER, relx=0.5, rely=0.73)
 
-    ask = tk.Label(frame, )
+
+    def test():
+        # from app_show_steps import show_steps
+        # show_steps(recipe)
+        print("aw;oghaweo")
+
+    ask = button(canvas, text="Step-by-Step Instruction", borderless=1, command=test)
+    ask.place(anchor=CENTER, relx=0.3, rely=0.9, relheight = 0.05)
+
+    def exit():
+        v_root.destroy()
+    exit = button(canvas, text = "X", padx = 0, pady = 0, borderless = 1, borderwidth = 0,
+                    fg = "#000", bg = "#fff", font = ('Consolas 15', 18),
+                    command = exit)
+    exit.place(anchor = CENTER, relx = 0.7, rely = 0.9, relheight = 0.05)
