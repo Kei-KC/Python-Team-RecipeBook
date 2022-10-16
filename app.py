@@ -1,7 +1,6 @@
 import print_db
 import tkinter as tk
 from tkinter import *
-import subprocess as sub # To connect command output to GUI 
 from threading import Thread
 from PIL import Image,ImageTk
 import webbrowser # Open User Guide
