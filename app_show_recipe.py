@@ -14,9 +14,22 @@ def show_recipe(recipe):
 
     def get_recipe(recipe):
         from json_db import recipe_search
-        recipe = recipe_search(recipe)
-        print("recipe", recipe)
-        return recipe
+        recipe_result = recipe_search(recipe)
+        if recipe_result is not False:
+            print("recipe", recipe)
+            return recipe_result
+        else:
+            error = tk.Label(frame, text="Oops\n"+recipe+" does not exist!\nReturn to previous page to try again.", 
+                        fg="#000", bg="#e3e398",
+                        font=("Consolas 15", 25, 'bold'))
+            error.place(anchor=CENTER, relx=0.5, rely=0.5)
+            def prev():
+                v_root.destroy()
+            prev = button(canvas, text="Previous", padx=5, pady=5, borderless=1,
+                  fg="#000", bg="#fff", font=('Consolas 15', 14),
+                  command=prev)
+            prev.place(anchor=CENTER, relx=0.5, rely=0.9)
+        
 
     recipe_got = get_recipe(recipe)
     print("type", type(recipe_got))
