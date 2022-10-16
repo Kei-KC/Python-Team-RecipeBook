@@ -13,8 +13,6 @@ root.resizable(False, False) # FIXED WINDOW SIZE
 
 canvas = tk.Canvas(root, height = "700", width = "700", bg = "#EFE6D5")
 canvas.pack()
-# canvas_bg = ImageTk.PhotoImage(Image.open("canvas-bg.png")) # LOAD IMAGE
-# canvas.create_image(700/2, 700/2, anchor = CENTER,image = canvas_bg) # ADD IMAGE
 
 frame = tk.Frame(root, bg = "#FFF")
 frame.place(relheight = 0.7, relwidth = 0.7, 
@@ -29,8 +27,8 @@ welcomeMsg.place(anchor = CENTER, relx = 0.5, rely = 0.1)
 def viewall_btn_nextPg():
     root.withdraw()
     from app_viewall_p1 import view
-    data = print_db.print_all_menu()
-    view(data)
+    # data = print_db.print_all_menu()
+    view()
     
 viewAll = button(frame, text = "View All Menu", padx = 0, pady = 0, borderless = 1,
                     fg = "#000", bg = "#ecf2c7", font = ('Consolas 15', 18),
@@ -55,7 +53,6 @@ def create_btn_nextPg():
     root.withdraw()
     from app_create_p1 import view
     view()
-
 create = button(frame, text = "Create Recipe", padx = 0, pady = 0, borderless = 1,
                     fg="#000", bg="#ecf2c7", font=('Consolas 15', 18),
                     command = create_btn_nextPg)
