@@ -72,8 +72,8 @@ def show_recipe(recipe):
 
     def prev():
         v_root.destroy()
-        import app
-        app.root.deiconify()
+        # import app
+        # app.root.deiconify()
     prev = button(canvas, text="Previous", padx=5, pady=5, borderless=1,
                   fg="#000", bg="#fff", font=('Consolas 15', 14),
                   command=prev)
