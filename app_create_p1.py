@@ -60,12 +60,8 @@ def view():
         inst_to_list = inputs_to_list(inst_split,";")
         db.recipe_creation(n, igr_to_list[:-1], inst_to_list[:-1])
         from app_recipe_created import recipe_created
+        c_root.destroy()
         recipe_created(n)
-
-
-    # TRIGGERED ON BUTTON CLICK
-    # def get_input():
-    #     return show.show_recipe(to_search.get().lower())
 
     # SUBMIT INPUT
     submit = button(frame, text="Add!", padx=5, pady=5, borderless=1,
