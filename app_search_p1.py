@@ -1,7 +1,5 @@
 import tkinter as tk
 from tkinter import *
-import os
-import print_db
 from PIL import Image, ImageTk
 from tkmacosx import Button as button
 import app_show_recipe as show
