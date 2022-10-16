@@ -78,7 +78,8 @@ Clone the repository:
 
 	git clone https://github.com/Kei-KC/pythonees-recipe-book.git
 
-How to run the program in a shell:
+### How to run the program in a shell
+
 Install the necessary NPM packages:
 
 	npm install pandas difflib json os textwrap
@@ -88,7 +89,8 @@ Run the program:
 
 	python3 main.py
 
-How to run the program in GUI:
+### How to run the program in GUI
+
 Install the necessary packages:
 
 	pip install tkmacosx
