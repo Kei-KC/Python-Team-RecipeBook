@@ -79,23 +79,24 @@ Clone the repository:
 	git clone https://github.com/Kei-KC/pythonees-recipe-book.git
 
 How to run the program in a shell:
-	Install the necessary NPM packages:
+Install the necessary NPM packages:
 
-		npm install pandas difflib json os textwrap
-		pip install tabulate
+	npm install pandas difflib json os textwrap
+	pip install tabulate
 
-	Run the program:
+Run the program:
 
-		python3 main.py
+	python3 main.py
 
 How to run the program in GUI:
-	Install the necessary packages:
-		pip install tkmacosx
-		python3 -m pip install --upgrade Pillow
+Install the necessary packages:
 
-	Run the program:
+	pip install tkmacosx
+	python3 -m pip install --upgrade Pillow
 
-		python3 app.py
+Run the program:
+
+	python3 app.py
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
