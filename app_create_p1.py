@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import *
-import os
 import json_db as db
-import subprocess as sub
 from tkmacosx import Button as button
 
 # NEW WINDOW
