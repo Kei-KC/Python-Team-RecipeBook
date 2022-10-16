@@ -65,6 +65,8 @@ In order for this program to run, the following must be installed on your local 
 * tkinter
 * tabulate
 * textwrap
+* tkmacosx (for GUI)
+* Pillow (for GUI)
 
 ### Installation
 
@@ -76,6 +78,8 @@ Clone the repository:
 
 	git clone https://github.com/Kei-KC/pythonees-recipe-book.git
 
+### How to run the program in a shell
+
 Install the necessary NPM packages:
 
 	npm install pandas difflib json os textwrap
@@ -84,6 +88,17 @@ Install the necessary NPM packages:
 Run the program:
 
 	python3 main.py
+
+### How to run the program in GUI
+
+Install the necessary packages:
+
+	pip install tkmacosx
+	python3 -m pip install --upgrade Pillow
+
+Run the program:
+
+	python3 app.py
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
