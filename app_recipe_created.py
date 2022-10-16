@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import *
-from tkmacosx import Button as button
+from tkmacosx import Button as button 
 
 def recipe_created(new_recipe):
     root = tk.Tk()
@@ -15,3 +15,10 @@ def recipe_created(new_recipe):
                     fg = "#000", bg = "#e3e398", 
                     font = ("Consolas 15", 25, 'bold'))
     msg.place(anchor = CENTER, relx = 0.5, rely = 0.5)
+
+    def exit():
+        root.destroy()
+    exit = button(canvas, text = "X", padx = 0, pady = 0, borderless = 1, borderwidth = 0,
+                fg = "#000", bg = "#fff", font = ('Consolas 15', 18),
+                command = exit)
+    exit.place(anchor = CENTER, relx = 0.5, rely = 0.9, relheight = 0.05, relwidth = 0.1)
