@@ -117,7 +117,7 @@ def main():
 
 					When finished, type 'DONE'.""")
 				inst = inputs_to_list(';')
-				#print(inst)
+				# print(inst)
 
 				db.recipe_creation(name, ingr, inst)
 				clear_terminal()
