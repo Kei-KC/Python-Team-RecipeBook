@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import *
-import print_db
 from tkmacosx import Button as button
-
 
 def show_recipe(recipe):
     v_root = tk.Tk()
@@ -14,8 +12,28 @@ def show_recipe(recipe):
     frame.place(relheight=0.7, relwidth=1,
                 relx=0.5, rely=0.5, anchor=CENTER)
 
-    names, ingredients, instructions = print_db.get_recipe(recipe)
+    def get_recipe(recipe):
+        from json_db import recipe_search
+        recipe = recipe_search(recipe)
+        print("recipe", recipe)
+        return recipe
 
+    recipe_got = get_recipe(recipe)
+    print("type", type(recipe_got))
+    name = recipe_got["name"].values[0]
+    names = {}
+    names[name] = ""
+
+    ingredient_arr = recipe_got["ingredients"].values[0].split(",")
+    ingredients = {}
+    for ingr in ingredient_arr:
+        ingredients[ingr] = ""
+
+    instruction_arr = recipe_got["instructions"].values[0].split(";")
+    instructions = {}
+    for inst in instruction_arr:
+        instructions[inst] = ""    
+    
     # print recipe name
     for key in names:
         recipe_name = key.capitalize() + " Recipe"
@@ -45,18 +63,18 @@ def show_recipe(recipe):
                            fg="#000", bg="#fff", font=("Consolas 15", 18, 'bold'))
     instruction.place(anchor=CENTER, relx=0.5, rely=0.73)
 
+    # def exit():
+    #     v_root.destroy()
+    # exit = button(canvas, text = "X", padx = 0, pady = 0, borderless = 1, borderwidth = 0,
+    #                 fg = "#000", bg = "#fff", font = ('Consolas 15', 18),
+    #                 command = exit)
+    # exit.place(anchor = CENTER, relx = 0.5, rely = 0.9, relheight = 0.05)
 
-    def test():
-        # from app_show_steps import show_steps
-        # show_steps(recipe)
-        print("aw;oghaweo")
-
-    ask = button(canvas, text="Step-by-Step Instruction", borderless=1, command=test)
-    ask.place(anchor=CENTER, relx=0.3, rely=0.9, relheight = 0.05)
-
-    def exit():
+    def prev():
         v_root.destroy()
-    exit = button(canvas, text = "X", padx = 0, pady = 0, borderless = 1, borderwidth = 0,
-                    fg = "#000", bg = "#fff", font = ('Consolas 15', 18),
-                    command = exit)
-    exit.place(anchor = CENTER, relx = 0.7, rely = 0.9, relheight = 0.05)
+        import app
+        app.root.deiconify()
+    prev = button(canvas, text="Previous", padx=5, pady=5, borderless=1,
+                  fg="#000", bg="#fff", font=('Consolas 15', 14),
+                  command=prev)
+    prev.place(anchor=CENTER, relx=0.5, rely=0.9)
